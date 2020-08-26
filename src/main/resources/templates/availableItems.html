@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Ark Inventory</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="./css/styles.css">
+	<script>
+		$(document).ready(function(){
+			$(".hamburger .hamburger__inner").click(function(){
+			  $(".wrapper").toggleClass("active")
+			})
+
+			$(".top_navbar .fas").click(function(){
+			   $(".profile_dd").toggleClass("active");
+			});
+		})
+	</script>
+	
+	<script>
+	
+	function exportTableToExcel(tables, filename = ''){
+	    var downloadLink;
+	    var dataType = 'application/vnd.ms-excel';
+	    var tableSelect = document.getElementById(tables);
+	    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+	    
+	    // Specify file name
+	    filename = filename?filename+'.xls':'excel_data.xls';
+	    
+	    // Create download link element
+	    downloadLink = document.createElement("a");
+	    
+	    document.body.appendChild(downloadLink);
+	    
+	    if(navigator.msSaveOrOpenBlob){
+	        var blob = new Blob(['\ufeff', tableHTML], {
+	            type: dataType
+	        });
+	        navigator.msSaveOrOpenBlob( blob, filename);
+	    }else{
+	        // Create a link to the file
+	        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+	    
+	        // Setting the file name
+	        downloadLink.download = filename;
+	        
+	        //triggering the function
+	        downloadLink.click();
+	    }
+	}
+	
+	</script>
+	
+	
+	
+	<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<style>
+	
+	.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+
+	
+	 </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="hamburger__inner">
+         <div class="one"></div>
+         <div class="two"></div>
+         <div class="three"></div>
+       </div>
+    </div>
+    <div class="menu">
+      <div class="logo" align="center">
+        Ark Inventory
+      </div>
+      <div class="right_menu">
+        <ul>
+          <li><i class="fas fa-user"></i>
+            <div class="profile_dd">
+               <div class="dd_item">Human Resources</div>
+               <div class="dd_item">Car Request</div>
+               <a href="/logout">
+               <div class="dd_item">Logout</div>
+               </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    
+  <div class="main_container">
+      <div class="sidebar">
+          <div class="sidebar__inner">
+            <div class="profile">
+              <div class="img">
+               <img src="./images/pic.png" >
+              </div>
+              <div class="profile_info">
+                 <p>Welcome to</p>
+                 <p class="profile_name">Ark Insurance</p>
+              </div>
+            </div>
+            <ul>
+            
+            <li>
+                <a href="/home">
+                  <span class="icon"><i class="fa fa-home" aria-hidden="true"></i>
+</span>
+                  <span class="title">Home</span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="/urequest">
+                  <span class="icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
+                  <span class="title">Request Item</span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="/approve">
+                  <span class="icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                  <span class="title">Active User</span>
+                </a>
+              </li>
+              
+              
+             
+             
+            </ul>
+          </div>
+      </div>
+      
+      
+			
+			<div class="panel panel-default">
+		<div class="panel-heading">Item Registration</div>
+		
+	</div>
+		</div>
+		<br>
+      <div align="center">
+      <br />
+    <h1>SEARCH FOR ITEM AVAILABILITY</h1>
+    
+      <br/><br/>
+      
+    <table class="content-table" border="1" padding="10">
+    
+    <span class="icon"><i class="fas fa-search"></i></span>
+<input id="txtsearch" type="text" placeholder="Search Here..." />
+
+<a>Download Excel File
+        <button onclick="exportTableToExcel('tables')"><img th:src="@{/images/excel.png}" style="width:60px;"></button>
+   </a>
+        <thead>
+            <tr>
+             <th>Item id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Serial nos</th>
+                <th>Quantity(s)</th>
+                <th>Qnty(s) Available</th>
+                <th>Qnty(s) Requested</th>
+                <th>Received By</th>
+                <th>Department</th>
+                <th>Date</th>
+                <th>Action</th>
+             
+            </tr>
+        </thead>
+        <tbody id="table">
+            <tr th:each="addItem : ${listDeployItems}">
+             <td th:text="${addItem.id}">Item id</td>
+                <td th:text="${addItem.iname}">Item Name</td>
+                <td th:text="${addItem.icat}">Item Category</td>
+                <td th:text="${addItem.isn}">Item Serial Nos</td>
+                <td th:text="${addItem.iqnty}"> Quantity(s)Supplied</td>
+                <td th:text="${addItem.iqntys}"> Quantity(s) Available</td>
+                <td th:text="${addItem.iqntyr}"> Quantity(s) Requested</td>
+                <td th:text="${addItem.rcvd}"> Received By</td>
+                 <td th:text="${addItem.dept}"> Department</td>
+                <td th:text="${addItem.date}"> Date</td>
+                
+                <td>
+                    <a th:href="@{'/deploy/' + ${addItem.id}}">Deploy</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deleted/' + ${addItem.id}}">Delete</a>
+                </td>
+              
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    <span id="val"></span>
+    <script>
+    var table=document.getElementById("table"), sumVal=0;
+    for(var i=0; i < table.rows.length; i++)
+    	{
+    	sumVal =sumVal+ parseInt(table.rows[i].cells [5].innerHTML);
+    	
+    	}
+    document.getElementById("val").innerHTML="Total Numbers Of Available Items = " + sumVal;
+    </script>
+</div>    
+      
+  </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+     $("#txtsearch").keyup(function(){
+        var value = $(this).val().toLowerCase();
+        $("#table tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        
+      });
+    });
+    
+    $(function () {
+        $("#btnexport").click(function () {
+            $("#tables").table2excel();
+        });
+    });
+    
+
+    </script>
+
+    
+
+
+</body>
+</html>

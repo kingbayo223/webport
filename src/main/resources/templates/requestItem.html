@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>ARK INVENTORY</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="./css/styl.css">
+	    	    <link rel="stylesheet" href="./css/bg.jfif">
+	
+	
+	<style>
+	
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding: 50px;
+  
+}
+
+.btn
+{
+ background-color: green;
+}
+</style>
+</head>
+<h1 align="center"> <img src="./images/ark.png" alt="ark logo" height="80" width="130" > Fill Below Form To Send Request</br> <a align="center" class="fa fa-home"  href="/home">BACK HOME</a></br></h1>
+<br><br><br>
+
+			
+<body>
+
+			<div class="container" >
+			
+		
+		
+ <form action="https://formspree.io/atanimowo@arkinsurancegroup.com" method="POST">
+Your Name <input type="text" name="name"><br>
+Your Request <input type="text" name="message"><br>
+Quantity <input type="text" name="quantity"><br>
+Your Department <input type="text" name="department"><br>
+Enter Your Ark Domain Email <input type="email" name="_replyto" value="@arkinsurancegroup.com"><br>
+ <br><input type="submit" value="send"><br>
+</form>
+  
+  
+</div>
+
+</body>
+</html>

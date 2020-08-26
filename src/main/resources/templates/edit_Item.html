@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Ark Inventory</title>
+ <link rel="stylesheet" href="./css/styles.css">
+ <link rel="stylesheet" href="styles.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="./css/styl.css">
+	    	    <link rel="stylesheet" href="./css/bg.jfif">
+	    	    <link rel="stylesheet" href="./images/ark.png">
+	
+	<style>
+	
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 50px;
+  background-color:#edfaf3;
+  padding: 50px;
+  
+}
+
+.btn
+{
+ background-color: green;
+}
+</style>
+</head>
+
+<body>
+<div style="background-color: #80CBC4; height: 50px;"> 
+</div>
+<div class="wrapper">
+  <div class="top_navbar">
+    
+    <div class="menu">
+      <div class="logo" align="center">
+      
+      </div>
+     
+    </div>
+  </div>
+    </div>
+
+
+
+
+
+<div class="container" >
+    <div align="center">
+     <h1>EDIT ITEM</h1>
+        <br><br>
+    <img src="/images/ark.png" alt="ark logo" height="80" width="130" >
+    <marquee behavior="scroll" direction="left">Please ensure you have properly entered details before saving into the database...</marquee>
+    
+    <br>
+       
+   
+        <a align="center" class="fa fa-home"  href="/home">BACK HOME</a><br><br>
+        
+        <form action="#" th:action="@{/save}" th:object="${addItem}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+            
+           
+        <tr>
+                    <td>Item ID:</td>
+                    <td><input type="text" th:field="*{id}" /></td>
+                </tr>
+            <tr>
+                    <td>Item Name:</td>
+                    <td><input type="text" th:field="*{iname}" /></td>
+                </tr>
+                <tr>
+                    <td>Item Category:</td>
+                    <td><input type="text" th:field="*{icat}" /></td>
+                </tr>
+                <tr>
+                    <td>Item Serial Nos</td>
+                    <td><input type="text" th:field="*{isn}" /></td>
+                </tr>
+                <tr>
+                    <td>Item Quantity</td>
+                    <td><input type="text" th:field="*{iqnty}" /></td>
+                </tr>
+                <tr>
+                    <td>Vendor Name</td>
+                    <td><input type="text" th:field="*{vname}"  /></td>
+                </tr>  
+                 <tr>
+                    <td>Vendor Address</td>
+                    <td><input type="text" th:field="*{vadd}"  /></td>
+                </tr> 
+                 <tr>
+                    <td>Vendor Email</td>
+                    <td><input type="text" th:field="*{vemail}" /></td>
+                </tr>  
+                 <tr>
+                    <td>Vendor Phone nos</td>
+                    <td><input type="text" th:field="*{vphone}" /></td>
+                </tr>   
+                 <tr>
+                    <td>Received By</td>
+                    <td><input type="text" th:field="*{rby}" /></td>
+                </tr> 
+                <tr>
+                    <td>Received By</td>
+                    <td><input type="text" th:field="*{date}" /></td>
+                </tr>                                                               
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                      
+                </tr>                     
+               
+            </table>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

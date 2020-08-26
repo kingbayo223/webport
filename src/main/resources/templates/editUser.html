@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Ark INVENTORY</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #ededed;">
+<div style="background-color: #80CBC4; height: 50px;"></div>
+	<div class="container-fluid"  style="margin-top: 30px;" >
+	
+    <div align="center">
+        <h1>Edit User</h1>
+         <a href="/approve">Back To Edit  Page</a> 
+            
+        <br />
+        <form action="#" th:action="@{/saveEdit}" th:object="${user}"
+            method="post">
+ 
+            <table border="0" cellpadding="10" style="width:60%">
+               <tr>
+                    <td>User ID:</td>
+                    <td><input type="text" th:field="*{id}" size="40"/></td>
+                </tr>
+                <br>
+            <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" th:field="*{name}" size="40" /></td>
+                </tr>
+                         <br>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" th:field="*{lastName}" size="40" /></td>
+                </tr>
+                         <br>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" th:field="*{email}" size="40"/></td>
+                </tr>
+                         <br>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="text" th:field="*{password}" size="40" /></td>
+                </tr>
+                         <br>
+                <tr>
+                    <td>Status</td>
+                    <td><input type="text" th:field="*{status}" size="40"/></td>
+                </tr>  
+                                                                          
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>  
+                   <br><br>
+                               
+                
+            </table>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

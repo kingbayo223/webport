@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Item</title>
+<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="./css/styl.css">
+	    	    <link rel="stylesheet" href="./css/bg.jfif">
+	
+	<script>
+                    function insertValue()
+                    {
+                    	var select = document.getElementById("select"),
+                    	txtVal=  document.getElementById("val").value,
+                    	newOption = document.createElement ("OPTION"),
+                    	newOptionVal = document.createTextNode (txtVal);
+                    	
+                    	newOption.appendChild(newOptionVal);
+                    	select.insertBefore(newOption,select.lastChild);
+                    
+                    }
+                    </script>
+                    
+	
+	<style>
+	.container {
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding: 50px;
+  
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.btn
+{
+ background-color: green;
+}
+	</style>
+	
+</head>
+<body style="background-color:#e3fbe3;">
+	
+    <div align="center">
+    
+    
+        <h1>Create New Product</h1>
+        
+<img src="./images/ark.png" alt="ark logo" height="80" width="130" >
+<br /><br />
+		<td> 
+		<a align="center" class="fa fa-home"  href="/home">BACK HOME</a>
+		
+                    
+                    <input align="center" id="val" type="text" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" placeholder="Add item category here">
+                    
+                     
+                    <button onclick="insertValue();" align="center">Add</button>
+                    </td>
+
+
+        <form action="#" th:action="@{/save}" th:object="${add}" method="POST">
+ 
+            <table border="0" cellpadding="10">
+            
+            <tr>
+                    <td>Item ID:</td>
+                    <td><input type="text" th:field="*{id}" pattern=[0-9]+/></td>
+                </tr>
+            <tr>
+                    <td>Item Name:</td>
+                    <td><input type="text" th:field="*{iname}"  pattern=[A-Za-z]+/></td>
+                </tr>
+                
+                 
+                <tr>
+                    <td>Item Category</td>
+                    <td>
+                    <select th:field="*{icat}" th:id="select">
+                    <option th:value="laptop">Laptop</option>
+                    <option th:value="tonerCatridge">Toner Catridge</option>
+                    </select>
+                    </td>
+                    
+                      <tr>
+                    <td>Item Serial Nos</td>
+                    <td><input type="text" th:field="*{isn}" pattern=[A-Za-z0-9]+/></td>
+                </tr>
+                <tr>
+                    <td>Item Quantity</td>
+                    <td><input type="text" th:field="*{iqnty}" pattern=[0-9]+/></td>
+                </tr>
+                <tr>
+                    <td>Vendor Name:</td>
+                    <td><input type="text" th:field="*{vname}" pattern=[A-Za-z]+/></td>
+                </tr>  
+                 <tr>
+                    <td>Vendor Address</td>
+                    <td><input type="text" th:field="*{vadd}" pattern=[A-Za-z]+ /></td>
+                </tr> 
+                 <tr>
+                    <td>Vendor Email</td>
+                    <td><input type="text" th:field="*{vemail}" pattern=[A-Za-z0-9]+/></td>
+                </tr>  
+                 <tr>
+                    <td>Vendor Phone Nos</td>
+                    <td><input type="text" th:field="*{vphone}" pattern=[0-9]+ /></td>
+                </tr>   
+                 <tr>
+                    <td>Received By</td>
+                    <td><input type="text" th:field="*{rby}"/>
+                                    </tr> 
+                      <tr>                                                                             
+                    <td>date</td>
+                    <td><input type="date" th:field="*{date}" />
+                    </tr>
+                                    <tr>   
+                                                                                              
+                   <td> <br><input type="submit" value="submit"></td><br>
+                    
+                </tr>                                                                
+                
+                   <span th:utext="${successMessage}"></span>
+				<div class="alert alert-success alert-dismissible col-sm-12"
+					th:if="${(bindingResult != null && bindingResult.getAllErrors() != null)}">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">×</button>
+					<ul th:each="data : ${bindingResult.getAllErrors()}">
+						<li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+					</ul>
+				</div>          
+                
+            </table>
+            
+        </form>
+    </div>
+</body>
+</html>

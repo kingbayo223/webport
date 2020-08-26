@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Ark Inventory</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="./css/styles.css">
+	<script>
+		$(document).ready(function(){
+			$(".hamburger .hamburger__inner").click(function(){
+			  $(".wrapper").toggleClass("active")
+			})
+
+			$(".top_navbar .fas").click(function(){
+			   $(".profile_dd").toggleClass("active");
+			});
+		})
+	</script>
+	
+	<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<style>
+	
+	.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+
+	
+	 </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="hamburger__inner">
+         <div class="one"></div>
+         <div class="two"></div>
+         <div class="three"></div>
+       </div>
+    </div>
+    <div class="menu">
+      <div class="logo" align="center">
+        Ark Inventory
+      </div>
+      <div class="right_menu">
+        <ul>
+          <li><i class="fas fa-user"></i>
+            <div class="profile_dd">
+               <div class="dd_item">Human Resources</div>
+               <div class="dd_item">Car Request</div>
+               <a href="/logout">
+               <div class="dd_item">Logout</div>
+               </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    
+  <div class="main_container">
+      <div class="sidebar">
+          <div class="sidebar__inner">
+            <div class="profile">
+              <div class="img">
+               <img src="./images/pic.png" >
+              </div>
+              <div class="profile_info">
+                 <p>Welcome to</p>
+                 <p class="profile_name">Ark Insurance</p>
+              </div>
+            </div>
+            <ul>
+              
+              <li>
+                <a href="/urequest">
+                  <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                  <span class="title">Request Item</span>
+                </a>
+              </li>
+             
+             <li>
+                <a href="#">
+                  <span class="icon"><i class="fa fa-th-list"></i>
+</i></span>
+                  <span class="title">Car Request</span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="#">
+                  <span class="icon"><i class="fa fa-plane"></i></span>
+                  <span class="title">Leave Request</span>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+      </div>
+      
+      
+			
+			<div class="panel panel-default">
+		<div class="panel-heading">Item Registration</div>
+		
+	</div>
+		</div>
+		<br>
+      <div align="center">
+      <br /><br /><br />
+    <h1>SEARCH FOR ITEM AVAILABILITY</h1>
+    
+      <br/><br/>
+      
+    <table class="content-table" border="1" padding="10">
+    <div >
+    <span class="icon"><i class="fas fa-search"></i></span>
+<input id="txtsearch" type="text" placeholder="Search Here..." />
+</div>
+        <thead>
+            <tr>
+             <th>Item id</th>
+                <th>Item name</th>
+                <th>Item category</th>
+                <th>Item Serial nos</th>
+                <th>Quantity(s) Available</th>
+             
+            </tr>
+        </thead>
+        <tbody id="table">
+            <tr th:each="addItem : ${listDeployItems}">
+             <td th:text="${addItem.id}">Item id</td>
+                <td th:text="${addItem.iname}">Item Name</td>
+                <td th:text="${addItem.icat}">Item Category</td>
+                <td th:text="${addItem.isn}">Item Serial Nos</td>
+                <td th:text="${addItem.iqnty}"> Quantity(s) Available</td>
+              
+            </tr>
+        </tbody>
+    </table>
+</div>    
+      
+  </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+     $("#txtsearch").keyup(function(){
+        var value = $(this).val().toLowerCase();
+        $("#table tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        
+      });
+    });
+    
+    
+    
+
+    </script>
+
+    
+
+
+</body>
+</html>
